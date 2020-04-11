@@ -9,8 +9,14 @@
 
 void led_init(); //initialize
 void led_update();
+void switched_light();
 
-extern unsigned char red_on, green_on;
+char state1_red();
+char state2_green();
+char state3_bothOn();
+char state4_bothOff();
+
+extern unsigned char red_on, green_on, new_red_on, new_green_on;
 extern unsigned char green_led_state, red_led_state; //boolean flags??
 extern unsigned char led_changed;
 

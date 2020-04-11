@@ -2,7 +2,6 @@
 #include <msp430.h>
 #include "switches.h"
 #include "led.h"
-#include "stateMachine.h"
 #include "buzzer.h"
 
 unsigned char curState = 0;
