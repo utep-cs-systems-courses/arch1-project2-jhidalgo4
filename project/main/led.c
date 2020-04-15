@@ -64,8 +64,8 @@ char state2_green(){
 //show binary bit number 3 (both)
 char state3_bothOn(){
   pwCount = (pwCount +1) % 5; //0,1,2,3 or 4. change to 8 or higher to get flikering lights
-  new_green_on = (pwCount <1); //turn green on only 1/14 of the time
-  new_red_on = (pwCount <1); //only turn on 1/14 of the time
+  new_green_on = (pwCount <1); //turn green on only 1/5 of the time
+  new_red_on = (pwCount <1); //only turn on 1/5 of the time
   switched_light();
   if(led_changed) return 1;
   return 0;
