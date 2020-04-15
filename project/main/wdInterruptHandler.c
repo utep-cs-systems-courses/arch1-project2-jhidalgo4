@@ -13,6 +13,7 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){ // /* port 2 because we are dealing with
   if(P2IFG & SWITCHES ){  //did a button come to this interrupt
     P2IFG &= ~SWITCHES; //clear pending sw interrupts
     switch_interrupt_handler(); // single handler for all switches
+    stateMachine();
   }
 }
 
@@ -22,12 +23,12 @@ __interrupt_vec(WDT_VECTOR) WDT(){  // 250 interrupts / sec
   static int blink_count = 0;
 
   stateMachine();
-  
+  //ONLY USE to mess with WDT timer
   //if(++blink_count == 500){
-  //  stateMachine(); //Connects to stateMachine.c
-  //  blink_count = 0;
-  // }
-  
+    //timed_led_change(); //Connects to stateMachine.c
+    //stateMachine();
+  //blink_count = 0;
+  //}
 }
   
   
