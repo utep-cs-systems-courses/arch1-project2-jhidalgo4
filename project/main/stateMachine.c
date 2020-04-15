@@ -1,5 +1,4 @@
 ////USE ASSEMBLY FILE INSTEAD
-
 //stateMachine.c file
 #include <msp430.h>
 #include "stateMachine.h"
@@ -8,8 +7,8 @@
 #include "buzzer.h"
 
 
- Parameter curState is the state of the machine depending on switches.c the button pushed
-void state_advance(){
+     //Parameter curState is the state of the machine depending on switches.c the button pushed
+void stateMachine(){
   char changed = 0;   
   switch(curState){
   case 1: changed = state1_red(); break;
