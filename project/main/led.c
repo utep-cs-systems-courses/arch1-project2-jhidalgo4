@@ -4,7 +4,7 @@
 #include "switches.h"
 #include "stateMachine.h" // is this needed, not calling this method hmmm
 
-unsigned char red_on = 0, green_on = 0, new_red_on = 0, new_green_on = 0;
+unsigned char red_on = 0, green_on = 0, new_green_on = 0, new_red_on = 0;
 unsigned char led_changed = 0;
 
 static char redVal[]={0,LED_RED}, greenVal[] = {0,LED_GREEN};
@@ -46,38 +46,33 @@ char state1_red(){
   new_green_on = 0;
   new_red_on = 1;
   switched_light();
+  if(led_changed) return 1;
+  return 0;
 }
 
 char state2_green(){
   new_green_on = 1;
   new_red_on = 0;
   switched_light();
+  if(led_changed) return 1;
+  return 0;
 }
 
 char state3_bothOn(){
   new_green_on = 1;
   new_red_on = 1;
   switched_light();
+  if(led_changed) return 1;
+  return 0;
 }
 
 char state4_bothOff(){
   new_green_on = 0;
   new_red_on = 0;
   switched_light();
+  if(led_changed) return 1;
+  return 0;
 }
-
-
-//Button update
-//  void led_update(){
-//    if(switch_state_changed){
-//      char ledFlags = 0;  //by deafult, no led's on
-//      ledFlags |= switch_state_down ? LED_GREEN:0;
-//      ledFlags switch_state_down ? 0:LED_RED;
-//      P1OUT &= (0xff-LEDS) | ledFlags; //clear bits for off leds
-//      P1OUT |= ledFlags; //set bits for on LED
-//  }
-//    switch_state_changed = 0;
-//}
   
 
   

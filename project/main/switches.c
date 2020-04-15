@@ -3,6 +3,7 @@
 #include "switches.h"
 #include "led.h"
 #include "buzzer.h"
+#include "stateMachine.h"
 
 unsigned char curState = 0;
 char switch_state_down1, switch_state_down2, switch_state_down3, switch_state_down4;
@@ -63,17 +64,5 @@ switch_interrupt_handler(){
   else{
     //do nothing
   }
-  
-  //switch(curCase){
-  //case 1: state_advance(curCase); //far left button
-  //case 2: state_advance(curCase); //mid left button
-  //case 3: state_advance(curCase); //mid right button
-  //case 4: state_advance(curCase); //far right button
-  //}
-
-  //This is from button demo not blink demo (below)
-  //switch_state_changed = 1;
-  //led_update();  //maybe a duplicate from stateMachines.c, this one seems less valuable
-
 }
 
