@@ -1,6 +1,6 @@
 	;; #include goes up here...
 	;; ... end
-	/**
+/***	
 	.arch msp430g2553	
 	.p2align		
 	
@@ -8,7 +8,7 @@
 	.global stateMachine
 	.global changed		;set char to 0
 changed:	.byte 0		;set changed to 0
-	
+	.p2align
 	.global curState	;;import this variable from different file to control STATE
 	.global led_changed 	;import led_changed variable from other c file
 	.global led_update 	;import method from other c file
@@ -52,7 +52,7 @@ case1:
 	mov #state1_red, r0
 ra1:
 	mov r12, &changed 	; take returned from calling "state1_red" & store into changed
-	jmp esac
+	pop r0
 
 	;; case 2
 case2:
@@ -60,7 +60,7 @@ case2:
 	mov #state2_green, r0 	; call this function
 ra2:
 	mov r12, &changed
-	jmp esac
+	pop r0
 
 	;; case 3
 case3:
@@ -68,7 +68,7 @@ case3:
 	mov #state3_bothOn, r0
 ra3:
 	mov r12, &changed
-	jmp esac
+	pop r0
 
 	;; case 4
 	
@@ -77,14 +77,17 @@ case4:
 	mov #state4_bothOff, r0
 ra4:
 	mov r12, &changed 	;return and store r12 parameter into changed
-	jmp esac
+	pop r0
 
 	;; default case
 default:
-	goto esac
+	jmp esac
 esac:
 	pop r0			;END by default
 
-	***/			;end of commented part out
+				;end of commented part out
+	
+***/
 
+	
 	

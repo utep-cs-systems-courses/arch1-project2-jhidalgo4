@@ -1,5 +1,6 @@
-////USE ASSEMBLY FILE INSTEAD
+//USE ASSEMBLY FILE INSTEAD
 //stateMachine.c file
+
 #include <msp430.h>
 #include "stateMachine.h"
 #include "led.h"

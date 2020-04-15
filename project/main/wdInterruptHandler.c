@@ -4,7 +4,7 @@
 #include "switches.h"
 #include "led.h"
 
-extern void stateMachine(); //maybe not  needed when running .s assmebly file
+//extern void stateMachine(); //maybe not  needed when running .s assmebly file
 
 // Button's from New Board attached to MSP430
 // All the buttons need to trigger something to execute
@@ -20,13 +20,13 @@ __interrupt_vec(PORT2_VECTOR) Port_2(){ // /* port 2 because we are dealing with
 void
 __interrupt_vec(WDT_VECTOR) WDT(){  // 250 interrupts / sec
   static int blink_count = 0;
+
   stateMachine();
   
-  
   //if(++blink_count == 500){
-  //  state_advance();  //Connects to stateMachine.c
+  //  stateMachine(); //Connects to stateMachine.c
   //  blink_count = 0;
-  //}
+  // }
   
 }
   
